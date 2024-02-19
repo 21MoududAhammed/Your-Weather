@@ -4,6 +4,7 @@ const useWeather = () => {
   const [weatherData, setWeatherData] = useState({
     location: "",
     climate: "",
+    climateDescription:'',
     temperature: "",
     maxTemperature: "",
     minTemperature: "",
@@ -40,6 +41,7 @@ const useWeather = () => {
           ...weatherData,
           location: data?.name,
           climate: data?.weather[0]?.main,
+          climateDescription: data?.weather[0]?.main,
           temperature: data?.main?.temp,
           maxTemperature: data?.main?.temp_max,
           minTemperature: data?.main?.temp_min,

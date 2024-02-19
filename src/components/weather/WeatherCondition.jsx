@@ -1,48 +1,60 @@
-import tempMax from '../../assets/icons/temp-max.svg'
-import tempMin from '../../assets/icons/temp-min.svg'
-import humidity from '../../assets/icons/humidity.svg'
-import cloud from '../../assets/icons/cloud.svg'
-import wind from '../../assets/icons/wind.svg'
+import tempMaxImg from "../../assets/icons/temp-max.svg";
+import tempMinImg from "../../assets/icons/temp-min.svg";
+import humidityImg from "../../assets/icons/humidity.svg";
+import cloudImg from "../../assets/icons/cloud.svg";
+import windImg from "../../assets/icons/wind.svg";
+import { useContext } from "react";
+import { weatherContext } from "../../context/weatherContext";
 export default function WeatherCondition() {
+  const { weatherData } = useContext(weatherContext);
+  const {
+    maxTemperature,
+    minTemperature,
+    humidity,
+    cloudPercentage,
+    wind,
+    climateDescription,
+  } = weatherData;
+
   return (
     <div>
       <p className="text-sm lg:text-lg font-bold uppercase mb-8">
-        thunderstorm with light drizzle
+        Climate is <span className="underline">{climateDescription}</span>
       </p>
       <ul className="space-y-6 lg:space-y-6">
         <li className="text-sm lg:text-lg flex items-center justify-between space-x-4">
           <span>Temp max</span>
           <div className="inline-flex space-x-4">
-            <p>19°</p>
-            <img src={tempMax} alt="temp-max" />
+            <p>{Math.round(maxTemperature)}°</p>
+            <img src={tempMaxImg} alt="temp-max" />
           </div>
         </li>
         <li className="text-sm lg:text-lg flex items-center justify-between space-x-4">
           <span>Temp min</span>
           <div className="inline-flex space-x-4">
-            <p>19°</p>
-            <img src={tempMin} alt="temp-min" />
+            <p>{Math.round(minTemperature)}°</p>
+            <img src={tempMinImg} alt="temp-min" />
           </div>
         </li>
         <li className="text-sm lg:text-lg flex items-center justify-between space-x-4">
           <span>Humidity</span>
           <div className="inline-flex space-x-4">
-            <p>58%</p>
-            <img src={humidity} alt="humidity" />
+            <p>{humidity}%</p>
+            <img src={humidityImg} alt="humidity" />
           </div>
         </li>
         <li className="text-sm lg:text-lg flex items-center justify-between space-x-4">
           <span>Cloudy</span>
           <div className="inline-flex space-x-4">
-            <p>86%</p>
-            <img src={cloud} alt="cloudy" />
+            <p>{cloudPercentage}%</p>
+            <img src={cloudImg} alt="cloudy" />
           </div>
         </li>
         <li className="text-sm lg:text-lg flex items-center justify-between space-x-4">
           <span>Wind</span>
           <div className="inline-flex space-x-4">
-            <p>5km/h</p>
-            <img src={wind} alt="wind" />
+            <p>{wind} km/h</p>
+            <img src={windImg} alt="wind" />
           </div>
         </li>
       </ul>
