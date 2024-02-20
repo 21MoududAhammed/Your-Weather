@@ -1,10 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { LocationContext } from "../context";
 
 const useWeather = () => {
+  const { location } = useContext(LocationContext);
+  const selectedLocation = location; // that user is searching
+
   const [weatherData, setWeatherData] = useState({
     location: "",
     climate: "",
-    climateDescription:'',
+    climateDescription: "",
     temperature: "",
     maxTemperature: "",
     minTemperature: "",
@@ -71,10 +75,17 @@ const useWeather = () => {
       state: true,
       message: "Finding location .....",
     });
-    navigator.geolocation.getCurrentPosition(function (position) {
-      fetchWeather(position.coords.latitude, position.coords.longitude);
-    });
-  }, []);
+    //  if user is search, if statement will execute otherwise else will execute
+    if (selectedLocation.latitude && selectedLocation.longitude) {
+      //fetchWeather fetch the details of a location's weather. it takes two parameter which are latitude and longitude.
+      fetchWeather(selectedLocation.latitude, selectedLocation.longitude);
+    } else {
+      //here navigator is being used to get the current location's latitude and longitude, is a build in api of js
+      navigator.geolocation.getCurrentPosition(function (position) {
+        fetchWeather(position.coords.latitude, position.coords.longitude);
+      });
+    }
+  }, [selectedLocation.latitude, selectedLocation.longitude]);
 
   return {
     loading,
