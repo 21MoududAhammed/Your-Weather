@@ -1,16 +1,16 @@
 import { useContext } from "react";
-import pinImg from "../../assets/pin.svg";
-import { weatherContext } from "../../context/weatherContext";
-import { getFormattedDate } from "../../utils";
-import CloudIcon from "../../assets/icons/cloud.svg";
 import HazeIcon from "../../assets/haze.svg";
+import CloudIcon from "../../assets/icons/cloud.svg";
 import SnowIcon from "../../assets/icons/snow.svg";
 import SunnyIcon from "../../assets/icons/sunny.svg";
+import pinImg from "../../assets/pin.svg";
 import RainIcon from "../../assets/rainy.svg";
 import ThunderIcon from "../../assets/thunder.svg";
+import { WeatherContext } from "../../context";
+import { getFormattedDate } from "../../utils";
 
 export default function WeatherHeadline() {
-  const { weatherData } = useContext(weatherContext);
+  const { weatherData } = useContext(WeatherContext);
   const { temperature, location, time, climate } = weatherData;
 
   function getWeatherIcon(climate) {
