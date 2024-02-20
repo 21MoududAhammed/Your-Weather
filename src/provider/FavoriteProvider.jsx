@@ -6,6 +6,7 @@ const FavoriteProvider = ({ children }) => {
   
   // to add a location's details to favorite list
   const addToFavorite = (latitude, longitude, location) => {
+    
     setFavorites([...favorites, {
       latitude: latitude,
       longitude: longitude,

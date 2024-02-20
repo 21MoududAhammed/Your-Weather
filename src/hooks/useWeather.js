@@ -3,6 +3,7 @@ import { LocationContext } from "../context";
 
 const useWeather = () => {
   const { location } = useContext(LocationContext);
+  
   const selectedLocation = location; // that user is searching
 
   const [weatherData, setWeatherData] = useState({
@@ -53,8 +54,8 @@ const useWeather = () => {
           cloudPercentage: data?.clouds?.all,
           wind: data?.wind?.speed,
           time: data?.dt,
-          longitude: latitude,
-          latitude: longitude,
+          longitude: longitude,
+          latitude: latitude,
         });
       }
     } catch (err) {

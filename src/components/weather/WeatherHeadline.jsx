@@ -13,6 +13,7 @@ export default function WeatherHeadline() {
   const { weatherData } = useContext(WeatherContext);
   const { temperature, location, time, climate } = weatherData;
 
+
   function getWeatherIcon(climate) {
     switch (climate) {
       case "Rain":
