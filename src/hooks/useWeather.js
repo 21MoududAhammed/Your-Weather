@@ -29,6 +29,7 @@ const useWeather = () => {
   const fetchWeather = async (latitude, longitude) => {
     try {
       setLoading({
+        ...loading,
         state: true,
         message: "Data Fetching....",
       });
