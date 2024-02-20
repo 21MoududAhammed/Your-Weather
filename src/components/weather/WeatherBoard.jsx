@@ -1,3 +1,4 @@
+
 import AddToFavorite from "./AddToFavorite";
 import WeatherCondition from "./WeatherCondition";
 import WeatherHeadline from "./WeatherHeadline";
@@ -11,6 +12,7 @@ export default function WeatherBoard() {
             <AddToFavorite />
             <WeatherHeadline />
             <WeatherCondition />
+          
           </div>
         </div>
       </div>

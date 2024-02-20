@@ -1,10 +1,13 @@
 import Page from "./components/Page";
 import { WeatherProvider } from "./provider";
+import { FavoriteProvider } from "./provider/FavoriteProvider";
 
 export default function App() {
   return (
     <WeatherProvider>
-        <Page/>
+      <FavoriteProvider>
+        <Page />
+      </FavoriteProvider>
     </WeatherProvider>
   );
 }
