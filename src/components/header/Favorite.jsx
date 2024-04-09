@@ -6,7 +6,7 @@ export default function Favorite({ onChange }) {
       onClick={onChange}
     >
       <img src={favoriteIcon} alt="" />
-      <span>Favorite Locations</span>
+      <span className='text-white font-semibold'>Favorite Locations</span>
     </button>
   );
 }

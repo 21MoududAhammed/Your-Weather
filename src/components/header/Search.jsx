@@ -4,7 +4,7 @@ import { LocationContext } from "../../context";
 import { getLocationByName } from "../../data/location-data";
 import { useDebounce } from "../../hooks";
 export default function Search() {
-  const { setLocation } = useContext(LocationContext); // it provides location and setLocation
+  const { setLocation } = useContext(LocationContext); // useContext provides location and setLocation
 
   // using useDebounce
   const doSearch = useDebounce((searchTerm) => {
