@@ -19,8 +19,10 @@ export default function Search() {
   //   doSearch(searchTerm);
   // }
 
-  const handleSearch = () =>{
-    const fetchLocation = getLocationByName(searchTerm.charAt(0).toUpperCase() + searchTerm.slice(1))
+  const handleSearch = async (e) =>{
+    e.preventDefault();
+    const fetchLocation = await getLocationByName(searchTerm.charAt(0).toUpperCase() + searchTerm.slice(1))
+    console.log(fetchLocation);
     setLocation({...fetchLocation})
     setSearchTerm('')
   }

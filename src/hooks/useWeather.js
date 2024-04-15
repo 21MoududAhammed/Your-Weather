@@ -3,6 +3,7 @@ import { LocationContext } from "../context";
 
 const useWeather = () => {
   const { location } = useContext(LocationContext);
+
   
   const selectedLocation = location; // that user is searching
 
@@ -42,6 +43,8 @@ const useWeather = () => {
         throw new Error(`Fetching data failed: ${response.status}`);
       } else {
         const data = await response.json();
+
+
         //set data about current weather
         setWeatherData({
           ...weatherData,
